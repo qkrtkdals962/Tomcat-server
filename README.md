@@ -12,6 +12,7 @@ Tomcat을 이용한 게시판 제작
 - Tomcat설치 : [apache-tomcat-9.0.104](https://tomcat.apache.org/download-90.cgi)의 core zip파일 설치
 - Eclipse설치 : [Eclipse](https://www.eclipse.org/downloads/)설치
 
+
 환경변수 설정(위의 실행 환경 설치 완료 후)
 1. CMD창에 `echo %JAVA_HOME%`명령어를 사용하여 JAVA_HOME의 환경변수가 나오게 되는데 이 값과 JDK위치값이 같은지 확인.
 2. CMD창에 `java -version`명령어를 사용하여 버전(17.0.11)을 확인한다.
@@ -21,5 +22,5 @@ Tomcat을 이용한 게시판 제작
 4. 이제 다시 CMD창에 `echo %JAVA_HOME%`, `java -version`를 입력하여 환경변수가 잘 적용되었는지 확인한다.
 
 Tomcat실행하기
-- CMD 창에서 `cd` 명령어를 사용하여 Tomcat의 `bin` 디렉터리로 이동한 후, `startup.bat` 명령어를 실행하여 Tomcat을 시작한다.
-- 만약 Tomcat프롬포트창이 열리고 Tomcat창이 안열리면 직접 브라우저에서 http://localhost:8080`주소로 들어가면 Tomcat의 서버제작시 환영 페이지가 나온다.
+   - CMD 창에서 `cd` 명령어를 사용하여 Tomcat의 `bin` 디렉터리로 이동한 후, `startup.bat` 명령어를 실행하여 Tomcat을 시작한다.
+   - 만약 Tomcat프롬포트창이 열리고 Tomcat창이 안열리면 직접 브라우저에서 http://localhost:8080`주소로 들어가면 Tomcat의 서버제작시 환영 페이지가 나온다.
