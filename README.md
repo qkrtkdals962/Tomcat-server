@@ -85,19 +85,27 @@ React 기반의 메뉴 추천 컴포넌트가 포함됩니다. 사용자의 기�
 
 -----> 현재 메뉴 추천 컴포넌트 까지 제작 완료 
 
-├── components/ # UI 컴포넌트 모음
-│ └── MealRecommendationApp/ # 메뉴 추천 관련 컴포넌트
-│ ├── MealItem.jsx # 개별 메뉴 항목 출력
-│ ├── MealList.jsx # 추천 메뉴 리스트
-│ └── TimeSelector.jsx # 시간대 선택 드롭다운
+## 📁 폴더 구조
+
+```
+src/
+├── components/                  # UI 컴포넌트 모음
+│   └── MealRecommendationApp/  # 메뉴 추천 관련 컴포넌트
+│       ├── MealItem.jsx        # 개별 메뉴 항목 출력
+│       ├── MealList.jsx        # 추천 메뉴 리스트
+│       └── TimeSelector.jsx    # 시간대 선택 드롭다운
 │
-├── data/ # 정적 데이터 관리
-│ └── meals.js # 메뉴 데이터 (예: 아침, 점심, 저녁)
+├── data/                       # 정적 데이터 관리
+│   └── meals.js                # 메뉴 데이터 (예: 아침, 점심, 저녁)
 │
-├── pages/ # 라우팅 가능한 단일 페이지 컴포넌트
-│ └── MealRecommendationApp.jsx # 메뉴 추천 기능을 페이지로 구성
+├── pages/                      # 라우팅 가능한 단일 페이지 컴포넌트
+│   └── MealRecommendationApp.jsx  # 메뉴 추천 기능을 페이지로 구성
 │
-├── App.css # 전역 스타일
-├── App.js
+├── App.css                     # 전역 스타일
+├── App.js                      # 루트 앱 컴포넌트
+├── App.test.js                 # 테스트 파일
+├── index.css                   # 기본 스타일링
+└── index.js                    # React 앱 진입점
+```
 
 진행중인 폴더 구조입니다. 아직 메뉴 추천 컴포넌트만 제작한 상황이라 추 후 레이아웃 구성 후 일부 적용하여 파일을 올려드리겠습니다.
