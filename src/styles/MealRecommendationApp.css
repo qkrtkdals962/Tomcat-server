@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+/* 전체 앱 컨테이너 */
+.app-container {
+  height: 94vh;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 컨텐츠 래퍼 */
+.content-wrapper {
+  max-width: 950px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto; /* 필요한 경우에만 내부 스크롤 허용 */
+}
+
+/* 헤더 */
+.app-header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+.app-title {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.app-subtitle {
+  display: block;
+  font-size: 0.9em;
+}
+
+/* 푸터 */
+.app-footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #888;
+  padding-bottom: 0px;
+  width: 100%;
+}
+
+/* 메인 콘텐츠 영역 */
+.main-content {
+  flex-grow: 1;
+  overflow-y: auto; /* 콘텐츠가 많을 경우 스크롤 */
+  padding-bottom: 10px;
+}
+
+/* 시간대 선택 버튼 */
+.time-selector {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.time-button {
+  background: #e0e0e0;
+  color: #333;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.time-button.active {
+  background-color: #ff9f1c;
+  color: #fff;
+}
+
+/* 메뉴 카드 */
+.menu-card {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.refresh-button {
+  background-color: #48cae4;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.refresh-button:hover {
+  background-color: #00b4d8;
+}
+
+/* 정보 배너 */
+.info-banner {
+  background-color: #edf2fb;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding: 12px 16px;
+  border-radius: 15px;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* 식단 카드 그리드 */
+.meals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* 스켈레톤 로딩 */
+.meal-skeleton {
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  padding: 20px;
+  animation: pulse 1.2s infinite;
+}
+
+.skeleton-title,
+.skeleton-text,
+.skeleton-calories {
+  height: 12px;
+  background-color: #ddd;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+.skeleton-title {
+  width: 60%;
+}
+
+.skeleton-text {
+  width: 90%;
+}
+
+.skeleton-calories {
+  width: 40%;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* 식단 카드 항목 스타일 */
+.meal-card {
+  background-color: #fefefe;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s;
+}
+
+.meal-card:hover {
+  transform: translateY(-4px);
+}
+
+.meal-name {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.meal-description {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.meal-calories {
+  font-weight: bold;
+  color: #ff595e;
+}
+
+/* 주제별 색상 */
+.breakfast-theme {
+  background-color: #fff8f0;
+}
+
+.lunch-theme {
+  background-color: #f0f8ff;
+}
+
+.dinner-theme {
+  background-color: #f8f0ff;
+}
+
+.breakfast-color {
+  color: #FFA726;
+  font-size: 1.7rem;
+}
+
+.lunch-color {
+  color: #42A5F5;
+  font-size: 1.7rem;
+}
+
+.dinner-color {
+  color: #AB47BC;
+  font-size: 1.7rem;
+}

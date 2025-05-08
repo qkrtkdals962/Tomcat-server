@@ -1,0 +1,89 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: white;
+  border-bottom: 1px solid #eaeaea;
+  height: 32px; /* 헤더 높이 고정 */
+}
+
+.logo img {
+  height: 48px; /* 로고 아이콘 크기만 키움 */
+  width: auto;
+}
+ 
+.nav-menu {
+  display: flex;
+  gap: 48px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+ 
+.nav-menu a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+  position: relative; /* 밑줄을 위한 position 설정 */
+  padding-bottom: 4px; /* 밑줄을 위한 하단 여백 추가 */
+}
+ 
+/* 호버 밑줄 효과 추가 */
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff5722; /* 밑줄 색상 - 필요에 따라 변경 가능 */
+  transition: width 0.3s ease;
+}
+ 
+.login-container {
+ margin-top: 60px;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+ 
+.nav-menu a:hover {
+  color: #000;
+}
+ 
+.nav-menu a.active::after {
+  width: 100%;
+}
+
+.login-menu {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #555;
+}
+ 
+.login-text, .signup-text {
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+ 
+.login-text:hover, .signup-text:hover {
+  color: #000;
+}
+ 
+.divider {
+  font-size: 14px;
+  color: #777;
+  margin: 0 2px;
+}
+
+.icons {
+  display: flex;
+  gap: 16px;
+  font-size: 16px;
+  color: #555;
+}
