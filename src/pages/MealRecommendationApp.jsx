@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import TimeSelector from '../components/MealRecommendationApp/TimeSelector';
 import MealList from '../components/MealRecommendationApp/MealList';
 import mealsData from '../data/meals';
-import logo from '../assets/images/logo.png'
+import logo from '../assets/images/logo1.png'
 import '../styles/MealRecommendationApp.css';
 
 const getCurrentMealTime = () => {

@@ -69,7 +69,7 @@ function HealthCalculators() {
           className={`tab-button ${activeTab === 'bmr' ? 'active' : ''}`}
           onClick={() => setActiveTab('bmr')}
         >
-          기초대사량 계산기
+          기초대사량(BMR) 계산기
         </button>
         <button 
           className={`tab-button ${activeTab === 'bmi' ? 'active' : ''}`}
