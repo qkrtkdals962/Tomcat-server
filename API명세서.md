@@ -1,0 +1,61 @@
+## 🍱 음식 조회/추가 API 명세서
+
+### 📌 1. 음식 전체 조회 API
+
+- **URL**: `http://localhost:8080/foods`
+- **Method**: GET
+- **설명**: 등록된 모든 음식 정보를 JSON 배열로 반환합니다.
+
+#### 🔸 응답 예시
+
+```json
+[
+  {
+    "id": 1,
+    "foodname": "고구마",
+    "kcal": 86,
+    "car": 20.0,
+    "protein": 1.6,
+    "fat": 0.1
+  },
+  {
+    "id": 2,
+    "foodname": "닭가슴살",
+    "kcal": 165,
+    "car": 0.0,
+    "protein": 31.0,
+    "fat": 3.6
+  }
+]
+```
+
+### 📌 2. 음식 추가 API
+
+- **URL**: `http://localhost:8080/foods`
+- **Method**: POST
+- **설명**: 새로운 음식 데이터를 JSON 형식으로 등록합니다. 요청 시 `id`는 생략하고, 나머지 필드는 모두 필수입니다.
+
+#### 🔸 요청 예시
+
+```json
+{
+  "foodname": "연어",
+  "kcal": 200,
+  "car": 0.0,
+  "protein": 22.0,
+  "fat": 12.0
+}
+```
+
+#### 🔸 응답 예시
+
+```json
+{
+  "id": 351,
+  "foodname": "연어",
+  "kcal": 200,
+  "car": 0.0,
+  "protein": 22.0,
+  "fat": 12.0
+}
+```
