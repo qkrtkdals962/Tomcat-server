@@ -40,15 +40,6 @@
   font-size: 0.9em;
 }
 
-/* 푸터 */
-.app-footer {
-  text-align: center;
-  font-size: 0.85rem;
-  color: #888;
-  padding-bottom: 0px;
-  width: 100%;
-}
-
 /* 메인 콘텐츠 영역 */
 .main-content {
   flex-grow: 1;

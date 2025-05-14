@@ -13,7 +13,6 @@ const MainPage = () => {
         <MainContent />
         <RightSidebar />
       </div>
-      <Footer />
     </div>
   );
 };

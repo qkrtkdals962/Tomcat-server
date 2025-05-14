@@ -45,15 +45,15 @@ const Footer = () => {
             </a>
           </div>
           <p className="contact-info">
-            이메일: support@healthydiet.com<br />
-            전화: 02-123-4567
+            이메일: chlgk12345@naver.com<br />
+            전화: 010-5235-0038
           </p>
         </div>
       </div>
       
       <div className="footer-bottom">
         <p>&copy; 2025 오늘 뭐먹지? All Rights Reserved.</p>
-        <p className="developer-info">Developed by 헬시코딩</p>
+        <p className="developer-info">Developed by TcTeam</p>
       </div>
     </footer>
   );
