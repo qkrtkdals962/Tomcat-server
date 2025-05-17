@@ -66,13 +66,13 @@ function HealthCalculators() {
       {/* 탭 네비게이션 */}
       <div className="tab-navigation">
         <button 
-          className={`tab-button ${activeTab === 'bmr' ? 'active' : ''}`}
+          className={`cal-tab-button ${activeTab === 'bmr' ? 'active' : ''}`}
           onClick={() => setActiveTab('bmr')}
         >
           기초대사량(BMR) 계산기
         </button>
         <button 
-          className={`tab-button ${activeTab === 'bmi' ? 'active' : ''}`}
+          className={`cal-tab-button ${activeTab === 'bmi' ? 'active' : ''}`}
           onClick={() => setActiveTab('bmi')}
         >
           체질량지수(BMI) 계산기

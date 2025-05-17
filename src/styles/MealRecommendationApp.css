@@ -159,7 +159,7 @@
 .meal-card {
   background-color: #fefefe;
   border-radius: 15px;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s;
 }

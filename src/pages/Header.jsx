@@ -55,12 +55,12 @@ const Header = () => {
       {/* 하단 카테고리 메뉴 */}
       <div className="category-menu">
         <div>
-          <div className="category-button">
+          <div className="first-category-button">
             카테고리
           </div>
           <nav className="nav-menu">
-            <RefreshLink to="/diet-log">식단 일지</RefreshLink>
-            <RefreshLink to="/exercise-log">운동 일지</RefreshLink>
+            <RefreshLink to="/MealTrackerApp">식단 일지</RefreshLink>
+            <RefreshLink to="/WorkoutTrackerApp">운동 일지</RefreshLink>
             <RefreshLink to="/health-calculators">건강 계산기</RefreshLink>
             <RefreshLink to="/today-menu">오늘의 메뉴!</RefreshLink>
             <RefreshLink to="/community-board">자유 게시판</RefreshLink>

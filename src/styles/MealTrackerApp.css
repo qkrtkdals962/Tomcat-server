@@ -1,0 +1,650 @@
+/* 전체 앱 스타일 */
+:root {
+  --primary-color: #4caf50;
+  --primary-dark: #388e3c;
+  --primary-light: #c8e6c9;
+  --accent-color: #2196f3;
+  --text-color: #333;
+  --text-light: #767676;
+  --bg-color: #f9f9f9;
+  --card-bg: #ffffff;
+  --border-color: #e0e0e0;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --danger-color: #f44336;
+  
+  --breakfast-color: #ff9800;
+  --lunch-color: #f44336;
+  --dinner-color: #673ab7;
+  
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --btn-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.meal-tracker-app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.meal-tracker-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 헤더 스타일 */
+.app-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  font-size: 28px;
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+}
+
+.app-header p {
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+/* 탭 네비게이션 */
+.app-tabs {
+  display: flex;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+
+.tab-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+.tab-button:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.tab-button.active {
+  color: var(--primary-color);
+  border-bottom: 3px solid var(--primary-color);
+  background-color: rgba(76, 175, 80, 0.05);
+}
+
+/* 기록 카드 공통 스타일 */
+.trackers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .trackers-grid {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+.meal-tracker,
+.water-tracker,
+.calendar-view,
+.daily-history {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.tracker-header,
+.calendar-header,
+.history-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tracker-header h2,
+.calendar-header h2,
+.history-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.date-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.tracker-content,
+.calendar-content,
+.history-content {
+  padding: 20px;
+}
+
+/* 식단 기록 스타일 */
+.meal-type-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.meal-type-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.meal-type-button:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.meal-type-button.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.meal-input {
+  margin-bottom: 16px;
+}
+
+.meal-input textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  resize: none;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.5;
+  transition: var(--transition);
+}
+
+.meal-input textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.add-meal-button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.add-meal-button:hover {
+  background-color: var(--primary-dark);
+}
+
+.add-meal-button:disabled {
+  background-color: var(--border-color);
+  cursor: not-allowed;
+}
+
+.todays-meals {
+  margin-top: 24px;
+}
+
+.todays-meals h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-color);
+}
+
+.no-meals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 0;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.no-meals svg {
+  margin-bottom: 12px;
+  opacity: 0.6;
+}
+
+.meal-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.meal-item {
+  display: flex;
+  align-items: flex-start;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  padding: 12px;
+  position: relative;
+}
+
+.meal-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.meal-details {
+  flex: 1;
+}
+
+.meal-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.meal-description {
+  font-size: 14px;
+  color: var(--text-color);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.delete-meal-button {
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  display: flex;
+  padding: 4px;
+  border-radius: 50%;
+  transition: var(--transition);
+  margin-left: 8px;
+}
+
+.delete-meal-button:hover {
+  color: var(--danger-color);
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+/* 물 섭취량 트래커 스타일 */
+.water-progress {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.water-container {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: rgba(33, 150, 243, 0.1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.water-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(33, 150, 243, 0.7);
+  transition: height 0.5s ease;
+  z-index: 1;
+}
+
+.water-gauge {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.water-icon {
+  color: white;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+  margin-bottom: 8px;
+}
+
+.water-amount {
+  text-align: center;
+  color: white;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+}
+
+.water-count {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.water-goal {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.water-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.add-water-button,
+.remove-water-button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.add-water-button {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.add-water-button:hover {
+  background-color: #1976d2;
+}
+
+.remove-water-button {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--text-color);
+}
+
+.remove-water-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 캘린더 뷰 스타일 */
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.month-nav-button {
+  background: transparent;
+  border: none;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.month-nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.current-month {
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 100px;
+  text-align: center;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 16px;
+}
+
+.weekday-header {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-light);
+  padding: 8px 0;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  padding: 6px;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day-number {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.other-month {
+  opacity: 0.3;
+}
+
+.today {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.today .day-number {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.day-indicators {
+  display: flex;
+  gap: 3px;
+}
+
+.meal-indicator,
+.water-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.meal-indicator {
+  background-color: var(--primary-color);
+}
+
+.water-indicator {
+  background-color: var(--accent-color);
+}
+
+.calendar-legend {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.legend-color {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* 기록 내역 스타일 */
+.history-table-container {
+  overflow-x: auto;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.history-table th,
+.history-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.history-table th {
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.02);
+  color: var(--text-color);
+}
+
+.history-table tr:last-child td {
+  border-bottom: none;
+}
+
+.date-cell {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.date-display {
+  color: var(--text-color);
+  margin-bottom: 4px;
+}
+
+.today-badge {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.no-record {
+  color: var(--text-light);
+  font-style: italic;
+  font-size: 13px;
+}
+
+.meal-summary {
+  display: inline;
+  font-size: 13px;
+}
+
+.water-status {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.water-status-success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--success-color);
+}
+
+.water-status-primary {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: var(--accent-color);
+}
+
+.water-status-warning {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: var(--warning-color);
+}
+
+.water-status-danger {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: var(--danger-color);
+}
+
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .meal-tracker-app {
+    padding: 12px;
+  }
+  
+  .meal-type-buttons {
+    flex-direction: column;
+  }
+  
+  .app-header h1 {
+    font-size: 24px;
+  }
+  
+  .app-header p {
+    font-size: 14px;
+  }
+  
+  .tab-button span {
+    display: none;
+  }
+  
+  .history-table th,
+  .history-table td {
+    padding: 8px;
+    font-size: 13px;
+  }
+}

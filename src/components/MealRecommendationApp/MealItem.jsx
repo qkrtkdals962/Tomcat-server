@@ -3,7 +3,7 @@ import React from 'react';
 function MealItem({ name, description, calories, meal }) {
   // API에서 받은 데이터 구조 사용
   return (
-    <div className="meal-item">
+    <div className="meal-card">
       <h3 className="meal-title">{name}</h3>
       {description && <p className="meal-description">{description}</p>}
       <p className="meal-calories">{calories} kcal</p>

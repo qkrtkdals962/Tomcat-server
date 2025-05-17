@@ -8,9 +8,6 @@
     --light-bg: #f7f7f7;
     --error-color: #e74c3c;
     --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    --google-color: #ea4335;
-    --kakao-color: #fee500;
-    --naver-color: #03c75a;
     --border-radius: 10px;
   }
 
@@ -192,23 +189,6 @@
   .social-button:hover {
     transform: translateY(-2px);
     opacity: 0.9;
-  }
-  
-  .google {
-    background-color: white;
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  }
-  
-  .kakao {
-    background-color: var(--kakao-color);
-    color: #3c1e1e;
-  }
-  
-  .naver {
-    background-color: var(--naver-color);
-    color: white;
   }
   
   .register-link {
