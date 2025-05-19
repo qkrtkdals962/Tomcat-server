@@ -1,59 +1,62 @@
-
 # 🤖 Gemini API 명세서
 
-본 문서는 Gemini API 연동 기능을 제공하는 백엔드 서버의 API 명세서입니다.  
-서버 기본 주소: `http://localhost:8080`
+## 📌 개요
+클라이언트에서 Gemini API(OpenAI의 ChatGPT와 유사한 Google의 LLM)를 호출하기 위한 중계용 API입니다. 
+프론트엔드는 이 API를 통해 질문을 보내고, Gemini로부터의 응답을 전달받습니다.
 
 ---
 
-## ✅ Gemini 질문 API
+## ✅ 1. Gemini 질문 요청
 
-### 1. ❓ 질문 요청
+| 항목 | 내용 |
+|------|------|
+| **URL** | `POST /ask-gemini` |
+| **설명** | 사용자의 질문을 Gemini API로 전달하고 응답 텍스트를 반환합니다. |
+| **CORS 허용** | `http://localhost:3000` |
+| **요청 헤더** | `Content-Type: application/json` |
+| **요청 바디 타입** | `String` (질문 내용만 포함된 단순 텍스트) |
 
-- **Method:** `POST`
-- **URL:** `/ask-gemini`
-- **설명:** 사용자가 입력한 질문을 Google Gemini API에 전달하고 응답을 받아옵니다.
-- **요청 헤더:**
-  - `Content-Type: application/json`
-- **요청 바디 예시:**
-```json
-"Spring Boot란?"
+### 📤 요청 예시
 ```
-- **응답 예시:**
-```json
-"Spring Boot는 Java 기반의 프레임워크로, 복잡한 설정 없이 빠르게 웹 애플리케이션을 개발할 수 있게 해줍니다."
-```
-- **응답 코드:** `200 OK`
-
----
-
-## 📌 내부 처리 방식
-|단계|설명|
-|---|---|
-|1|사용자가 보낸 질문 문자열을 Google Gemini API에 POST 요청으로 전달|
-|2|API 응답에서 후보(candidates) 중 첫 번째 응답의 텍스트 부분 추출|
-|3|텍스트만 사용자에게 응답|
-
----
-
-## ⚠️ 예외 처리
-|상황|메시지|
-|---|---|
-|API 오류 발생|`"Gemini 요청 중 오류 발생: {에러메시지}"`|
-
----
-
-## 🔐 환경 변수
-
-`application.yml` 또는 `application.properties`에 다음과 같이 설정되어야 합니다:
-```yaml
-gemini:
-  api:
-    key: YOUR_API_KEY
+Spring Boot란 무엇인가요?
 ```
 
 ---
 
-## ✍️ 작성자
-- 작성자: 김현진
-- 설명: Google Gemini API와 연동하는 Spring Boot REST 컨트롤러
+## ✅ 응답
+
+| 항목 | 설명 |
+|------|------|
+| **응답 형식** | `String` (Gemini의 첫 번째 응답 텍스트) |
+| **HTTP 코드** | `200 OK` (정상 응답) <br> `500` (에러 발생 시 에러 메시지 반환) |
+
+### 📥 응답 예시
+```
+Spring Boot는 자바 기반의 프레임워크로, 스프링 애플리케이션을 빠르고 쉽게 만들 수 있게 도와줍니다...
+```
+
+---
+
+## ❗ 오류 응답 예시
+
+```
+Gemini 요청 중 오류 발생: 401 Unauthorized
+```
+
+---
+
+## 🔒 보안 관련 사항
+
+| 항목 | 설명 |
+|------|------|
+| **API Key** | `.yml` 설정 파일에서 `gemini.api.key`로 관리 |
+| **실제 요청 주소** | `https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=...` |
+| **주의사항** | API Key 노출 금지, 환경 변수 또는 비공개 설정 권장 |
+
+---
+
+## 🛠 내부 작동 방식 요약
+
+- 질문(`question`)을 JSON으로 Gemini API 형식에 맞춰 변환
+- `RestTemplate`을 사용하여 Google Gemini API에 POST 요청
+- 응답 중 첫 번째 후보(candidates[0])의 텍스트만 추출하여 반환
