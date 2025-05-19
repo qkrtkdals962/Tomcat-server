@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
+import { useAuth } from '../pages/AuthContext';
 
 const Login = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [formData, setFormData] = useState({
-    email: '',   // username -> email로 변경
+    email: '',
     password: '',
     rememberMe: false
   });
@@ -46,7 +48,7 @@ const Login = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            email: formData.email,   // username이 아닌 email로 전송
+            email: formData.email,
             password: formData.password
           }),
         });
@@ -56,14 +58,9 @@ const Login = () => {
         if (data.message === '로그인 성공') {
           setLoginMessage('로그인 성공! 로그인 중...');
           
-          if (formData.rememberMe) {
-            localStorage.setItem('isLoggedIn', 'true');
-            localStorage.setItem('email', formData.email);
-          } else {
-            sessionStorage.setItem('isLoggedIn', 'true');
-            sessionStorage.setItem('email', formData.email);
-          }
-
+          // 로그인 컨텍스트 업데이트 (전역 상태 관리)
+          login(formData.email, formData.rememberMe);
+          
           setTimeout(() => {
             navigate('/');
           }, 1500);

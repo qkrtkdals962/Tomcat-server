@@ -1,27 +1,35 @@
-import React from 'react'; 
-import '../styles/Header.css'; 
-import logo from '../assets/images/logo.png'; 
-import { useNavigate } from 'react-router-dom'; 
-import RefreshLink from '../components/RefreshLink/RefreshLink';  
+import React from 'react';
+import '../styles/Header.css';
+import logo from '../assets/images/logo.png';
+import { useNavigate } from 'react-router-dom';
+import RefreshLink from '../components/RefreshLink/RefreshLink';
+import { useAuth } from '../pages/AuthContext';
 
-const Header = () => {   
-  const navigate = useNavigate();    
-  
-  const goToLogin = () => {     
-    console.log('로그인 페이지로 이동');     
-    navigate('/login');   
-  };      
-  
-  const goToRegister = (e) => {     
-    e.stopPropagation(); // 이벤트 버블링 방지     
-    console.log('회원가입 페이지로 이동');     
-    navigate('/register');   
-  };    
-  
-  const refreshPage = () => {     
-    window.location.href = '/'; // 새로고침   
-  };      
-  
+const Header = () => {
+  const navigate = useNavigate();
+  const { isLoggedIn, username, logout } = useAuth();
+
+  const goToLogin = () => {
+    console.log('로그인 페이지로 이동');
+    navigate('/login');
+  };
+
+  const goToRegister = (e) => {
+    e.stopPropagation(); // 이벤트 버블링 방지
+    console.log('회원가입 페이지로 이동');
+    navigate('/register');
+  };
+
+  const refreshPage = () => {
+    window.location.href = '/'; // 새로고침
+  };
+
+  const handleLogout = () => {
+    // 전역 상태 관리를 통한 로그아웃
+    logout();
+    navigate('/'); // 메인 페이지로 이동
+  };
+
   return (
     <div className="header-container">
       {/* 메인 헤더 */}
@@ -44,9 +52,19 @@ const Header = () => {
           {/* 아이콘 */}
           <div className="icons">
             <div className="login-menu">
-              <span className="login-text" onClick={goToLogin}>로그인</span>
-              <span className="divider">|</span>
-              <span className="register-text" onClick={goToRegister}>회원가입</span>
+              {isLoggedIn ? (
+                <>
+                  <span className="welcome-text">{username}님 환영합니다!</span>
+                  <span className="divider">|</span>
+                  <span className="logout-text" onClick={handleLogout}>로그아웃</span>
+                </>
+              ) : (
+                <>
+                  <span className="login-text" onClick={goToLogin}>로그인</span>
+                  <span className="divider">|</span>
+                  <span className="register-text" onClick={goToRegister}>회원가입</span>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -68,7 +86,7 @@ const Header = () => {
         </div>
       </div>
     </div>
-  ); 
-};  
+  );
+};
 
 export default Header;
