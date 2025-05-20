@@ -1,0 +1,637 @@
+/* IntegratedWorkoutTrackerApp.css */
+/* 변수 정의 - MealTrackerApp에서 가져온 디자인 시스템 */
+:root {
+  --primary-color: #4caf50;
+  --primary-dark: #388e3c;
+  --primary-light: #c8e6c9;
+  --accent-color: #2196f3;
+  --text-color: #333;
+  --text-light: #767676;
+  --bg-color: #f9f9f9;
+  --card-bg: #ffffff;
+  --border-color: #e0e0e0;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --danger-color: #f44336;
+  
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --btn-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --transition: all 0.3s ease;
+  
+  /* 운동 유형별 색상 */
+  --cardio-color: #f44336;
+  --strength-color: #3f51b5;
+  --flexibility-color: #ff9800;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* 전체 애플리케이션 스타일 */
+.workout-tracker-app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.workout-tracker-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 헤더 스타일 */
+.app-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  font-size: 28px;
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+}
+
+.app-header p {
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+/* 탭 네비게이션 스타일 */
+.app-tabs {
+  display: flex;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+
+.tab-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+.tab-button:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.tab-button.active {
+  color: var(--primary-color);
+  border-bottom: 3px solid var(--primary-color);
+  background-color: rgba(76, 175, 80, 0.05);
+}
+
+/* 트래커 그리드 스타일 */
+.trackers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .trackers-grid {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+/* 공통 트래커 스타일 */
+.workout-tracker,
+.weight-tracker,
+.calendar-view,
+.daily-history {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.tracker-header,
+.calendar-header,
+.history-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tracker-header h2,
+.calendar-header h2,
+.history-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin: 0;
+}
+
+.date-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-light);
+  font-size: 14px;
+  margin: 0;
+}
+
+.tracker-content,
+.calendar-content,
+.history-content {
+  padding: 20px;
+}
+
+/* 운동 트래커 스타일 */
+.workout-type-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.workout-type-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.workout-type-button:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.workout-type-button.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.workout-input {
+  margin-bottom: 16px;
+}
+
+.workout-input textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  resize: none;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.5;
+  transition: var(--transition);
+}
+
+.workout-input textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.add-workout-button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.add-workout-button:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+}
+
+.add-workout-button:disabled {
+  background-color: var(--border-color);
+  cursor: not-allowed;
+}
+
+.todays-workouts {
+  margin-top: 24px;
+}
+
+.todays-workouts h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-color);
+}
+
+.no-workouts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 0;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.no-workouts svg {
+  margin-bottom: 12px;
+  opacity: 0.6;
+}
+
+.workout-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.workout-item {
+  display: flex;
+  align-items: flex-start;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  padding: 12px;
+  position: relative;
+}
+
+.workout-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.workout-details {
+  flex: 1;
+}
+
+.workout-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.workout-description {
+  font-size: 14px;
+  color: var(--text-color);
+  line-height: 1.4;
+  word-break: break-word;
+  margin: 0;
+}
+
+.delete-workout-button {
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  display: flex;
+  padding: 4px;
+  border-radius: 50%;
+  transition: var(--transition);
+  margin-left: 8px;
+}
+
+.delete-workout-button:hover {
+  color: var(--danger-color);
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+/* 체중 트래커 스타일 */
+.weight-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0;
+}
+
+.weight-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.weight-icon {
+  color: var(--accent-color);
+}
+
+.weight-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weight-number {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.no-weight-recorded {
+  font-size: 16px;
+  color: var(--text-light);
+}
+
+.weight-input-container {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.weight-input {
+  flex-grow: 1;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 15px;
+  transition: var(--transition);
+}
+
+.weight-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.save-weight-button {
+  padding: 0 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.save-weight-button:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+}
+
+.save-weight-button:disabled {
+  background-color: var(--border-color);
+  cursor: not-allowed;
+}
+
+/* 캘린더 뷰 스타일 */
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.month-nav-button {
+  background: transparent;
+  border: none;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.month-nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.current-month {
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 100px;
+  text-align: center;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 16px;
+}
+
+.weekday-header {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-light);
+  padding: 8px 0;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  padding: 6px;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day-number {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.other-month {
+  opacity: 0.3;
+}
+
+.today {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.today .day-number {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.day-indicators {
+  display: flex;
+  gap: 3px;
+}
+
+.workout-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+
+.weight-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+}
+
+.calendar-legend {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.legend-color {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* 기록 내역 스타일 */
+.history-table-container {
+  overflow-x: auto;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.history-table th,
+.history-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.history-table th {
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.02);
+  color: var(--text-color);
+}
+
+.history-table tr:last-child td {
+  border-bottom: none;
+}
+
+.date-cell {
+  font-weight: 500;
+  white-space: nowrap;
+  position: relative;
+}
+
+.date-display {
+  color: var(--text-color);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.today-badge {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.no-record {
+  color: var(--text-light);
+  font-style: italic;
+  font-size: 13px;
+}
+
+.workout-summary {
+  display: inline;
+  font-size: 13px;
+  color: var(--text-color);
+}
+
+.weight-status {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.weight-status-neutral {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--text-color);
+}
+
+.weight-status-increase {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: var(--danger-color);
+}
+
+.weight-status-decrease {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--success-color);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .workout-tracker-app {
+    padding: 12px;
+  }
+  
+  .workout-type-buttons {
+    flex-direction: column;
+  }
+  
+  .app-header h1 {
+    font-size: 24px;
+  }
+  
+  .app-header p {
+    font-size: 14px;
+  }
+  
+  .tab-button span {
+    display: none;
+  }
+  
+  .history-table th,
+  .history-table td {
+    padding: 8px;
+    font-size: 13px;
+  }
+}

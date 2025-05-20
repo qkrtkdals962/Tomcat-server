@@ -1,0 +1,232 @@
+/* 메인 컨테이너 */
+.calculator-container {
+    max-width: 800px;
+    margin: 20px auto ;
+    padding: 24px;
+    background: linear-gradient(to bottom right, #f0f9ff, #e6f7f5);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 탭 네비게이션 */
+  .tab-navigation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 32px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .cal-tab-button {
+    padding: 16px;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .cal-tab-button:hover:not(.active) {
+    background-color: #f5f5f5;
+  }
+  
+  .cal-tab-button.active {
+    background: linear-gradient(to right, #0d9488, #0891b2);
+    color: white;
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+  }
+  
+  /* 정보 박스 */
+  .info-box {
+    background-color: #e6f7ff;
+    padding: 20px;
+    margin-bottom: 32px;
+    border: 1px solid #bde3ff;
+    border-radius: 12px;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .info-box p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #334155;
+    margin: 0;
+  }
+  
+  /* 계산기 패널 */
+  .calculator-panel {
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* 입력 섹션 */
+  .input-section {
+    margin-bottom: 24px;
+  }
+  
+  /* 성별 선택기 */
+  .gender-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  
+  .gender-button {
+    padding: 12px 40px;
+    border-radius: 9999px;
+    border: none;
+    background-color: #f1f5f9;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .gender-button.male {
+    margin-right: 16px;
+  }
+  
+  .gender-button.active.male {
+    background-color: #3b82f6;
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  }
+  
+  .gender-button.active.female {
+    background-color: #ec4899;
+    color: white;
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+  }
+  
+  /* 입력 그리드 */
+  .input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  
+  .input-grid.two-columns {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  /* 반응형: 모바일에서는 그리드를 단일 컬럼으로 변경 */
+  @media (max-width: 768px) {
+    .input-grid, .input-grid.two-columns {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* 입력 그룹 */
+  .input-group {
+    margin-bottom: 16px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #475569;
+  }
+  
+  .input-group input {
+    width: 96%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .input-group input:focus {
+    outline: none;
+    border-color: #0d9488;
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.2);
+  }
+  
+  /* 버튼 컨테이너 */
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* 계산 버튼 */
+  .calculate-button {
+    background: linear-gradient(to right, #f97316, #ea580c);
+    color: white;
+    padding: 12px 40px;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .calculate-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.4);
+  }
+  
+  .calculate-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(249, 115, 22, 0.4);
+  }
+  
+  /* 결과 컨테이너 */
+  .result-container {
+    margin-top: 32px;
+    padding: 24px;
+    background: linear-gradient(to right, #f0fdfa, #ecfeff);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .result-text {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .result-value {
+    font-weight: 700;
+    font-size: 22px;
+    color: #0d9488;
+  }
+  
+  .result-category {
+    font-size: 18px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .category-value {
+    font-weight: 700;
+  }
+  
+  .category-value.underweight {
+    color: #3b82f6;
+  }
+  
+  .category-value.normal {
+    color: #10b981;
+  }
+  
+  .category-value.overweight {
+    color: #f59e0b;
+  }
+  
+  .category-value.obese {
+    color: #ef4444;
+  }
+  
+  .result-description {
+    font-size: 14px;
+    color: #64748b;
+    margin-top: 16px;
+  }

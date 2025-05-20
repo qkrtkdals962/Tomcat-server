@@ -1,0 +1,284 @@
+/* Register.css */
+:root {
+    --primary-color: #4a6cf7;
+    --primary-hover: #3857d6;
+    --text-color: #333;
+    --light-text: #666;
+    --border-color: #e0e0e0;
+    --light-bg: #f7f7f7;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --border-radius: 10px;
+  }
+  .register-container {
+    margin-top: 60px;
+   }
+
+  .register-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    margin: 0 auto;
+  }
+  
+  .register-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .register-header h1 {
+    font-size: 28px;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  
+  .register-header p {
+    color: var(--light-text);
+    font-size: 16px;
+  }
+  
+  /* Step indicators */
+  .register-steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .step-number {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 8px;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s;
+  }
+  
+  .step.active .step-number {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+  }
+  
+  .step.completed .step-number {
+    background-color: var(--success-color);
+    color: white;
+    border-color: var(--success-color);
+  }
+  
+  .step-title {
+    font-size: 14px;
+    color: var(--light-text);
+    font-weight: 500;
+  }
+  
+  .step.active .step-title {
+    color: var(--text-color);
+    font-weight: 600;
+  }
+  
+  .step-line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: var(--border-color);
+    margin: 0 15px;
+    position: relative;
+    top: -18px;
+    z-index: 0;
+    transition: background-color 0.3s;
+  }
+  
+  .step-line.active {
+    background-color: var(--primary-color);
+  }
+  
+  .register-form {
+    margin-bottom: 30px;
+  }
+  
+  .step-content {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-color);
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--text-color);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .form-group input[type="text"]:focus,
+  .form-group input[type="email"]:focus,
+  .form-group input[type="password"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.2);
+  }
+  
+  .form-group input.error {
+    border-color: var(--error-color);
+  }
+  
+  .error-message {
+    color: var(--error-color);
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .form-group.checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* 간격 조정 */
+    justify-content: flex-start;
+  }
+  
+  
+  .form-group.checkbox input[type="checkbox"] {
+    margin-right: 10px;
+    margin-top: 3px;
+    cursor: pointer;
+  }
+  
+  .form-group.checkbox label {
+    color: var(--light-text);
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  
+  .terms-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .terms-link:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+  }
+  
+  .step-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  
+  .back-button,
+  .next-button,
+  .register-button {
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    flex: 1;
+  }
+  
+  .back-button {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+  }
+  
+  .back-button:hover {
+    background-color: var(--border-color);
+  }
+  
+  .next-button,
+  .register-button {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .next-button:hover,
+  .register-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+  }
+  
+  .login-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+    color: var(--light-text);
+  }
+  
+  .login-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .login-link a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .register-card {
+      padding: 25px;
+    }
+    
+    .register-header h1 {
+      font-size: 24px;
+    }
+    
+    .step-title {
+      font-size: 12px;
+    }
+    
+    .step-line {
+      margin: 0 10px;
+    }
+  }

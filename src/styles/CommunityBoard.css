@@ -1,0 +1,455 @@
+.free-board-container {
+  font-family: 'Arial', sans-serif;
+  margin: 20px auto;
+  max-width: 960px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.board-header {
+  display: flex; /* Flexbox 컨테이너로 설정 */
+  justify-content: space-between; /* 요소들을 양쪽 끝으로 배치하고 사이 공간 분배 */
+  align-items: center;         /* 세로 방향으로 가운데 정렬 (제목과 버튼을 가운데 맞춤) */
+  /* ... 기존 header 스타일 ... */
+}
+
+.board-header .create-button {
+  /* 필요하다면 버튼 자체에 추가 스타일 적용 */
+  margin-left: auto; /* 버튼을 오른쪽으로 밀어냄 (다른 요소가 없을 경우) */
+}
+
+.create-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.create-button:hover {
+  background-color: #0056b3;
+}
+
+.search-filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.search-box {
+  display: flex;
+}
+
+.search-box input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  font-size: 16px;
+  flex-grow: 1;
+}
+
+.search-box button {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.search-box button:hover {
+  background-color: #333;
+}
+
+.sort-options label {
+  margin-right: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+.sort-options select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.post-form {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.post-form h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.post-form input[type="text"],
+.post-form textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.post-form textarea {
+  min-height: 150px;
+}
+
+.post-form .file-upload {
+  margin-bottom: 10px;
+}
+
+.post-form .file-upload label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.post-form .file-upload input[type="file"] {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.post-form .form-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.post-form .form-buttons button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.post-form .form-buttons button:first-child {
+  margin-left: 0;
+}
+
+.post-form .form-buttons button:hover {
+  background-color: #0056b3;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-item {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 15px;
+  transition: box-shadow 0.3s ease;
+}
+
+.post-item:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-title {
+  font-size: 20px;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.post-title:hover {
+  color: #007bff;
+}
+
+.post-meta {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.post-meta span {
+  margin-right: 10px;
+}
+
+.post-tags {
+  margin-bottom: 10px;
+}
+
+.post-tag {
+  display: inline-block;
+  background-color: #f0f0f0;
+  color: #555;
+  padding: 5px 8px;
+  border-radius: 3px;
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.post-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.post-actions button:hover {
+  color: #007bff;
+}
+
+.post-actions .report-button {
+  color: red;
+}
+
+.post-actions .report-button:hover {
+  color: darkred;
+}
+
+.post-detail {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.post-detail h2 {
+  font-size: 24px;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.post-detail .detail-meta {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.post-detail .detail-content {
+  line-height: 1.6;
+  margin-bottom: 20px;
+  white-space: pre-wrap; /* 줄바꿈 유지 */
+}
+
+.comment-section {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.comment-section h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.comment-form textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  min-height: 80px;
+}
+
+.comment-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.comment-form button:hover {
+  background-color: #0056b3;
+}
+
+.comment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comment-item {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.comment-item .comment-meta {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.comment-item .comment-content {
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.comment-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.comment-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.comment-actions button:hover {
+  color: #007bff;
+}
+
+.reply-form {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.reply-form textarea {
+  width: calc(100% - 40px);
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  min-height: 50px;
+}
+
+.reply-form button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.reply-form button:hover {
+  background-color: #1e7e34;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  margin: 0 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.pagination button:hover {
+  background-color: #f0f0f0;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .free-board-container {
+      margin: 10px;
+      padding: 15px;
+  }
+
+  .board-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 15px;
+  }
+
+  .search-filter-bar {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .search-box {
+      width: 100%;
+  }
+
+  .search-box input[type="text"] {
+      border-radius: 5px;
+  }
+
+  .search-box button {
+      border-radius: 5px;
+  }
+
+  .sort-options {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .post-form input[type="text"],
+  .post-form textarea {
+      width: calc(100% - 10px);
+  }
+
+  .comment-form textarea {
+      width: calc(100% - 10px);
+  }
+
+  .reply-form textarea {
+      width: calc(100% - 20px);
+  }
+}
